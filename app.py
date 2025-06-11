@@ -4,7 +4,7 @@ import requests
 import pandas as pd
 import datetime
 
-API_KEY = "your_api_key"  # Replace this with your actual API key
+API_KEY = "5ef652dc32b18a607494972c929cd999"  # Replace this with your actual API key
 SPORT = "baseball_mlb"
 REGION = "us"
 MARKETS = ["batter_home_runs", "batter_total_bases", "batter_strikeouts"]
