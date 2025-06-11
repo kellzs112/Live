@@ -3,7 +3,7 @@ import streamlit as st
 import requests
 import pandas as pd
 
-API_KEY = "your_api_key"  # Replace with your actual API key
+API_KEY = "5ef652dc32b18a607494972c929cd999"  # Replace with your actual API key
 SPORT = "baseball_mlb"
 REGION = "us"
 MARKET = "h2h"  # Safe market: moneyline (head-to-head)
