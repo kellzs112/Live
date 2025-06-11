@@ -3,7 +3,7 @@ import streamlit as st
 import requests
 import pandas as pd
 
-API_KEY = "5ef652dc32b18a607494972c929cd999"  # Replace with your actual API key
+API_KEY = "your_api_key"  # Replace with your actual API key
 SPORT = "baseball_mlb"
 REGION = "us"
 MARKET = "h2h"  # Safe market: moneyline (head-to-head)
@@ -23,14 +23,15 @@ def get_odds():
 def display_odds(odds_data):
     rows = []
     for game in odds_data:
-        for bookmaker in game['bookmakers']:
-            for market in bookmaker['markets']:
-                for outcome in market['outcomes']:
+        teams = game.get('teams', ["Unknown", "Unknown"])
+        for bookmaker in game.get('bookmakers', []):
+            for market in bookmaker.get('markets', []):
+                for outcome in market.get('outcomes', []):
                     rows.append({
-                        "Game": " vs ".join(game['teams']),
-                        "Team": outcome['name'],
-                        "Odds": outcome['price'],
-                        "Bookmaker": bookmaker['title']
+                        "Game": " vs ".join(teams),
+                        "Team": outcome.get('name', "N/A"),
+                        "Odds": outcome.get('price', "N/A"),
+                        "Bookmaker": bookmaker.get('title', "N/A")
                     })
     return pd.DataFrame(rows)
 
